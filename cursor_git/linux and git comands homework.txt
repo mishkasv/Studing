@@ -2,7 +2,7 @@ Commands form linux homefork
 
 mkdir linux_lecture && touch notes.txt
 cp notes.txt linux_lecture
-ll linux_lecture
+ll 
 ll ~ -r
 mv notes.txt new_notex.txt
 rm new_notex.txt linux_lecture/notes.txt
