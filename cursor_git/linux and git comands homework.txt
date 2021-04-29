@@ -1,3 +1,5 @@
+Commands form linux homefork
+
 mkdir linux_lecture && touch notes.txt
 cp notes.txt linux_lecture
 ll linux_lecture
@@ -20,7 +22,7 @@ head -n7 homework.sh
 echo 'ls' > notes.sh && chmod 777 notes.sh
 sudo ./notes.sh
 
-
+Commands from git homework
 
 mkdir cursor_git
 cd cursor_git
