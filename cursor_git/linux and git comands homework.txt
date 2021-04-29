@@ -55,7 +55,7 @@ Commands from git homework
 29. git merge second
 30. git merge first
 31. git subl second.py
-resolve conflict by text reader and save file
+resolve conflict by text reader (add new command to excist) and save file
 git add second.py
 git commit -m 'add changes from branch first'
 git push
