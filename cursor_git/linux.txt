@@ -1,0 +1,64 @@
+mkdir linux_lecture && touch notes.txt
+cp notes.txt linux_lecture
+ll linux_lecture
+ll ~ -r
+mv notes.txt new_notex.txt
+rm new_notex.txt linux_lecture/notes.txt
+cd linux_lecture
+touch homework.sh
+touch -d '2020-01-01 4:15am' homework.sh
+touch hw.sh hw1.sh hw2.sh hw1.txt
+find *.txt
+mkdir new_lecture && cp .txt new_lecture
+echo 'echo "linux_lecture"' > homework.sh
+cat homework.sh
+chmod u=w homework.sh
+chmod 700 homework.sh
+sudo ./homework
+echo -e '1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n' > homework.sh
+head -n7 homework.sh
+echo 'ls' > notes.sh && chmod 777 notes.sh
+sudo ./notes.sh
+
+
+
+mkdir cursor_git
+cd cursor_git
+touch first.py
+git add first.py
+git commit -m 'adding first.py'
+git log
+touch second.py
+git add second.py
+git commit -m 'adding second.py'
+rm first.py
+git add first.py
+git commit -m 'removing first.py'
+git log
+git push
+git branch first
+git checkout -b second
+echo 'print("Hello")' > second.py
+git stash
+git checkout first
+git checkout second
+git stash pop
+git add second.py
+git commit -m 'Changing second.py'
+git push
+git checkout first
+echo 'print("Cursor")' > second.py
+git add second.py
+git commit -m 'Changing second.py'
+git push
+git checkout master
+git merge second
+git merge first
+git subl second.py
+resolve conflict by text reader and save file
+git add second.py
+git commit -m 'add changes from branch first'
+git push
+
+
+
