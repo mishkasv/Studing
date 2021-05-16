@@ -1,4 +1,5 @@
 from funcc import Calculator
+import pytest
 
 
 def test_check_sum():
@@ -15,3 +16,5 @@ def test_chekc_multiply():
 
 def test_check_division():
     assert Calculator.divide(5, 2) == 2.5
+    with pytest.raises(ValueError):
+        Calculator.divide(4,0)
