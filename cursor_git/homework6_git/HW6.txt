@@ -94,4 +94,4 @@ mysql> SELECT users.* FROM users, phones WHERE users.id=phones.user_id;
 
 
 mishka@mishka-VirtualBox:~$ sudo mysqldump -u root --password=root homework > ~/progect/cursor_git/homework6_git/HW6.sql
-
+-
