@@ -1,0 +1,51 @@
+1.task
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework9_git$ docker save -o ubuntu.tar ubuntu
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework9_git$ ls
+
+Dockerfile  HW9.txt  ubuntu.tar
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework9_git$ tar -tf ubuntu.tar 
+19e9ee687c412a0865e3f5421517afa68ead5aa2435c19292f87a5ade2d765b9/
+19e9ee687c412a0865e3f5421517afa68ead5aa2435c19292f87a5ade2d765b9/VERSION
+19e9ee687c412a0865e3f5421517afa68ead5aa2435c19292f87a5ade2d765b9/json
+19e9ee687c412a0865e3f5421517afa68ead5aa2435c19292f87a5ade2d765b9/layer.tar
+4970810a1722097662913d388a023b0ccc889046ccec1155b98aa7c2399ae16d/
+4970810a1722097662913d388a023b0ccc889046ccec1155b98aa7c2399ae16d/VERSION
+4970810a1722097662913d388a023b0ccc889046ccec1155b98aa7c2399ae16d/json
+4970810a1722097662913d388a023b0ccc889046ccec1155b98aa7c2399ae16d/layer.tar
+7ce97515a099127ca2a839e1c6716a0d80741c4968c222450dd0a0db71d98985/
+7ce97515a099127ca2a839e1c6716a0d80741c4968c222450dd0a0db71d98985/VERSION
+7ce97515a099127ca2a839e1c6716a0d80741c4968c222450dd0a0db71d98985/json
+7ce97515a099127ca2a839e1c6716a0d80741c4968c222450dd0a0db71d98985/layer.tar
+7e0aa2d69a153215c790488ed1fcec162015e973e49962d438e18249d16fa9bd.json
+manifest.json
+repositories
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework9_git$ tar -xf ubuntu.tar manifest.json 
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework9_git$ tar -xf ubuntu.tar --wildcards '*/layer.tar'
+
+""""""" just comment""""""
+if need just extract every layer.tar file.
+mkdir dir(where is layer.tar)/layer
+---tar -xf layer.tar -C dir/layer
+
+
+2. 
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework9_git$ docker build -t time_italy .
+Sending build context to Docker daemon  75.11MB
+Step 1/2 : FROM	alpine
+ ---> 6dbb9cc54074
+Step 2/2 : CMD TZ='Italy/Rome' date
+ ---> Using cache
+ ---> f6f1ca3fbd1f
+Successfully built f6f1ca3fbd1f
+Successfully tagged time_italy:latest
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework9_git$ docker run f6f1
+Mon May 31 18:54:29 UTC 2021
+
+
