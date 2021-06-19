@@ -1,0 +1,138 @@
+	1.
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+ubuntu        latest    7e0aa2d69a15   4 weeks ago    72.7MB
+hello-world   latest    d1165f221234   2 months ago   13.3kB
+
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker build -t test_flask .
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+test_flask    latest    4889a6b963c2   2 minutes ago   422MB
+ubuntu        20.04     7e0aa2d69a15   4 weeks ago     72.7MB
+ubuntu        latest    7e0aa2d69a15   4 weeks ago     72.7MB
+hello-world   latest    d1165f221234   2 months ago    13.3kB
+
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker run -d test_flask
+f324b1475fe1068ec9a92c495b3942754152e52b3099a28b92bea6ddc1aece70
+
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker ps
+CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS          PORTS     NAMES
+f324b1475fe1   test_flask   "/bin/sh -c 'FLASK_A…"   20 seconds ago   Up 19 seconds             lucid_carver
+
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker attach f
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker stop f
+f
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker inspect f
+[
+    {
+        "Id": "f324b1475fe1068ec9a92c495b3942754152e52b3099a28b92bea6ddc1aece70",
+        "Created": "2021-05-26T17:16:26.358467683Z",
+        "Path": "/bin/sh",
+        "Args": [
+            "-c",
+...
+...
+...
+
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker logs f
+ * Serving Flask app '/opt/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:8080/ (Press CTRL+C to quit)
+172.17.0.1 - - [26/May/2021 17:18:11] "GET /hello HTTP/1.1" 200 -
+172.17.0.1 - - [26/May/2021 17:18:17] "GET / HTTP/1.1" 200 -
+
+
+			CHANGE app.py
+				add
+-------------------------------
+@app.route('/user')
+def user():
+ 	return 'Hello Mykhailo'
+-------------------------------
+
+
+
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker build -t test_flask .
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker run -d test_flask
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker stop 23
+mishka@mishka-VirtualBox:~/progect/cursor_git/homework8_git$ docker logs 23
+ * Serving Flask app '/opt/app.py' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:8080/ (Press CTRL+C to quit)
+172.17.0.1 - - [26/May/2021 17:23:45] "GET /hello HTTP/1.1" 200 -
+172.17.0.1 - - [26/May/2021 17:23:51] "GET /user HTTP/1.1" 200 -
+172.17.0.1 - - [26/May/2021 17:24:00] "GET / HTTP/1.1" 200 -
+
+
+	2.
+	
+
+mishka@mishka-VirtualBox:~$ docker run -it --name my_story ubuntu
+root@177356af6dc8:/# echo "Hello my name is Mykhailo and I am lerning python wirh Cursor" > story.txt
+root@177356af6dc8:/# apt-get update && apt-get install cowsay
+root@177356af6dc8:/usr/share/cowsay/cows# cat ../../../../story.txt calvin.cow 
+Hello my name is Mykhailo and I am lerning python wirh Cursor
+##
+##
+##
+$the_cow = <<"EOC";
+ $thoughts                   .,
+   $thoughts         .      .TR   d'
+     $thoughts      k,l    .R.b  .t .Je
+       $thoughts   .P q.   a|.b .f .Z%
+           .b .h  .E` # J: 2`     .
+      .,.a .E  ,L.M'  ?:b `| ..J9!`.,
+       q,.h.M`   `..,   ..,""` ..2"`
+       .M, J8`   `:       `   3;
+   .    Jk              ...,   `^7"90c.
+    j,  ,!     .7"'`j,.|   .n.   ...
+   j, 7'     .r`     4:      L   `...
+  ..,m.      J`    ..,|..    J`  7TWi
+  ..JJ,.:    %    $eyes      ,. ....,
+    .,E      3     7`g.M:    P  41
+   JT7"'      O.   .J,;     ``  V"7N.
+   G.           ""Q+  .Zu.,!`      Z`
+   .9.. .         J&..J!       .  ,:
+      7"9a                    JM"!
+         .5J.     ..        ..F`
+            78a..   `    ..2'
+                J9Ksaw0"'
+               .EJ?A...a.
+               q...g...gi
+              .m...qa..,y:
+              .HQFNB&...mm
+               ,Z|,m.a.,dp
+            .,?f` ,E?:"^7b
+            `A| . .F^^7'^4,
+             @9@mmBmmmmmQM$
+             ..MMMMMMMMMMMQzna,
+         ...f"A.JdT     J:    Jp,
+          `JNa..........A....af`
+               `^^^^^'`
+EOC
+
+
+
+mishka@mishka-VirtualBox:~$ docker run -it --name my_story2 ubuntu
+root@f87f7aad9584:/# cat story.txt
+cat: story.txt: No such file or directory
+root@f87f7aad9584:/# cd usr/share/cowsay          
+bash: cd: usr/share/cowsay: No such file or directory
+root@f87f7aad9584:/# 
+
