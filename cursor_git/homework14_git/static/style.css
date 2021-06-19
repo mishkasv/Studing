@@ -1,0 +1,82 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+a {
+    margin: 20px;
+
+}
+h1 {
+
+    text-align: center;
+    color: green;
+}
+
+.form-container {
+    width: 100%;
+    display: inherit;
+    text-align: -webkit-center;
+    justify-content: center;
+}
+
+form {
+    text-align: center;
+    width: 30%;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form select {
+    width: 100%;
+    padding: 10px;
+}
+
+.select-group {
+    text-align: left;
+}
+
+form button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: green;
+    color: white;
+    border-color: white;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container div {
+    text-align: center;
+}
+
+.coords {
+    color: coral;
+}
+
+.temp {
+    color: #73b304;
+}
+
+.rain {
+    color: red;
+}
+.btnadd{
+font-size: larger;
+color: white;
+background: yellowgreen;
+}
+.btndel{
+font-size: larger;
+color: white;
+background: red;
+}
