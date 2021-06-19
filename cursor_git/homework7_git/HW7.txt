@@ -1,0 +1,30 @@
+1. Insert dump of shop.sql to your local database
+sudo mysql -u root --password=root hw_sql_2 < ~/progect/Python-Martian-Manhunter-adv-/homeworks/databases/shop.sql
+
+2. Modify table products add user_id as foreign key
+
+mysql> ALTER TABLE products ADD COLUMN user_id INT NOT NULL;
+
+mysql> UPDATE products SET user_id=1 WHERE id=1;
+
+mysql> ALTER TABLE products ADD FOREIGN KEY(user_id) REFERENCES users(id);
+
+____________________________
+"""add some data to database"""
+__________________________
+
+
+3. Select users their products, collections and images and write this query to file.
+
+mysql> SELECT users.first_name, users.last_name, products.title ,c.title , product_images.file FROM products LEFT JOIN users ON products.user_id=users.id LEFT JOIN product_images ON
+product_images.product_id=products.id LEFT JOIN categories_products cp ON cp.product_id=products.id LEFT JOIN categories c ON c.id=cp.category_id ORDER BY users.first_name,users.last_name;
++------------+-----------+-------+----------+------------------------------------------------------------------------------------+
+| first_name | last_name | title | title    | file                                                                               |
++------------+-----------+-------+----------+------------------------------------------------------------------------------------+
+| Liubomyr   | Luzhnyi   | Rolex | Watch    | https://res.cloudinary.com/hz3gmuqw6/image/upload/v1621495544/cooking_yx2glg.jpg   |
+| Liubomyr   | Luzhnyi   | RADER | bicycles | 11https://res.cloudinary.com/hz3gmuqw6/image/upload/v1621495544/cooking_yx2glg.jpg |
+| Liubomyr   | Luzhnyi   | LG    | TV       | url-for tv                                                                         |
+| Mykhailo   | Savchuk   | GT    | bicycles | 2https://res.cloudinary.com/hz3gmuqw6/image/upload/v1621495544/cooking_yx2glg.jpg  |
++------------+-----------+-------+----------+------------------------------------------------------------------------------------+
+4 rows in set (0,00 sec)
+
