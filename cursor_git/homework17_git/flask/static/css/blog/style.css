@@ -18,6 +18,8 @@ body {
 
 .footer {
     background-color: hotpink;
+    margin-top: 40px;
+    width: 100%;
 }
 
 .footer a {

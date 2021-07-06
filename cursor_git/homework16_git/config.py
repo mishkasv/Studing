@@ -17,18 +17,6 @@ class Config:
             'link': '/categories',
         },
     ]
-    AUTHOR = "Mykhailo Savchuk"
-    FOOTER_ITEMS_CONTACT = [
-        {
-            "name": "Phone",
-            "link": "+000000000000"
-        },
-
-        {
-            "name": "Email",
-            "link": "misha-savchuk@gmail.com"
-        }
-    ]
 
 
 def articles():
