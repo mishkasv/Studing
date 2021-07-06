@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'blog/shared/head.html' %}
+    <title>Confirm email</title>
+</head>
+<body>
+{% include 'blog/shared/header.html' %}
+<div class="container">
+    <h1>Confirm your email</h1>
+    <form class="needs-validation row">
+        <div class="form-group">
+            <label for="code">Type code from email:</label>
+            <input type="text" class="form-control" id="code" name="code" placeholder="code">
+        </div>
+        <div class="btn-group mg-top-sm col-sm-12" role="group" aria-label="Create article">
+            <button type="submit" id="code_confirm" class="btn btn-primary">Confirm</button>
+        </div>
+    </form>
+    <p id="print"></p>
+</div>
+
+{% include 'blog/shared/footer.html' %}
+{% include 'blog/shared/scripts.html' %}
+</body>
+</html>
