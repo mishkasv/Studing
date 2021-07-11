@@ -7,11 +7,9 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /usr/src/app/
 
-RUN pip install flask
 # copy project
 COPY . /usr/src/app/
 
-COPY ./requirements.txt /application/requirements.txt
 RUN pip install -r requirements.txt
 
-CMD ["python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD ["./wait-for-it-r.sh", "mysql:3306", "--", "gunicorn", "--bind" , "0.0.0.0:5000", "app:app"]

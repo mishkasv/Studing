@@ -17,7 +17,6 @@ def homepage():
     if session.get('user', False):
         city = session["user"].get("city")
         county = session["user"].get("county")
-        print(county,city, session["user"])
         if county==None and city==None:
             articles.all()
         else:

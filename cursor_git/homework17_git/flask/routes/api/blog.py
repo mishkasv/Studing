@@ -88,12 +88,11 @@ class ArticlesEntity(Resource):
 
 class Users(Resource):
     def get(self):
-        user = User.query.get(1)
-        serialized_articles = []
-        for article in user.articles:
-            print(article)
-            serialized_articles.append(article.serialize)
-        return serialized_articles
+        users = User.query.all()
+        serialized_users = []
+        for user in users:
+            serialized_users.append(user.serialize)
+        return serialized_users
 
 
 class Contact(Resource):
@@ -118,6 +117,6 @@ api.add_resource(User_store, '/api/user-register')
 api.add_resource(MenuItem, '/api/menu-items')
 api.add_resource(Articles, '/api/articles')
 api.add_resource(Users, '/api/users')
-api.add_resource(ArticlesEntity, '/api/articles/<int:id>')
+api.add_resource(ArticlesEntity, '/api/article/<int:id>')
 api.add_resource(Contact, '/api/contact')
 api.add_resource(ContactData, '/api/contacts')
