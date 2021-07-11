@@ -1,0 +1,71 @@
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="/static/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/static/js/blog/menu.js"></script>
+<script src="/static/js/blog/contact.js"></script>
+<script>
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    const rerere = document.getElementById("print");
+    var forms = document.getElementsByClassName('needs-validation');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function() {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+<script>
+$(document).ready(function(){
+    let pas = document.getElementById('password');
+    let pas_c = document.getElementById('password_c');
+    $('#password_c').on('input', function(e){
+        if (pas.value===$(this).val() && pas.value!='') {
+        pas_c.classList.remove('is-invalid')
+        pas_c.classList.add('is-valid')
+        } else {
+        pas_c.classList.remove('is-valid')
+        pas_c.classList.add('is-invalid')
+        }});
+    $('#password').on('input', function(e){
+        if (pas_c.value===$(this).val() && pas.value!='') {
+        pas_c.classList.remove('is-invalid')
+        pas_c.classList.add('is-valid')
+        } else {
+        pas_c.classList.remove('is-valid')
+        pas_c.classList.add('is-invalid')
+        }});
+
+    });
+</script>
+<script>
+    let button_code = document.getElementById('code_confirm');
+button_code.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    let code = document.getElementById('code');
+    var token = {{token}};
+    let data = {{data | safe}};
+    if (code.value != token) {
+    alert("Something went wrong! Please try again!");
+    } else {
+    fetch("/api/user-register", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => {
+        if (response.status == 200) {
+            document.location.href = '/';
+        } else {
+            alert("Something went wrong! Please try again!");
+        }})};
+});
+</script>

@@ -16,6 +16,14 @@ class MenuItem(Resource):
             'items': Config.MENU_ITEMS
         }
 
+class ContactData(Resource):
+    def get(self):
+        return {
+            'success': True,
+            'items': Config.FOOTER_ITEMS_CONTACT
+        }
+
 
 api.add_resource(MenuItem, '/menu-items')
+api.add_resource(ContactData, '/contacts')
 
