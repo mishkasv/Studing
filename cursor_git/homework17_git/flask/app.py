@@ -6,12 +6,13 @@ from flask_mail import Mail, Message
 from config import Config
 
 
-db = SQLAlchemy()
+db = SQLAlchemy(session_options={'autocommit': True})
 
 app = Flask(__name__)
 app.secret_key = "btIeBI8NJgtnPpaocmKyyimUbmsqlSWn"
 
 app.config.from_object("config.Config")
+app.config['JSON_AS_ASCII'] = False
 
 mail = Mail(app)
 

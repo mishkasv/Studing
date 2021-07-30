@@ -16,6 +16,6 @@ button_code.addEventListener('click', function (e) {
         }
     }).then(response => {
         if (response.status == 200) {
-            windows.location.replace('http://localhost:5000/');
+            window.location.replace('http://localhost/');
         }})};
 });

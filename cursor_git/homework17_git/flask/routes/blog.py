@@ -52,7 +52,7 @@ def sign_in():
     return render_template('blog/signin.html')
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/login1', methods=['POST'])
 def login():
     user = User.query.filter_by(email=request.form.get('username')).first()
     if user:

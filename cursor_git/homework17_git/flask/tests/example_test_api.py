@@ -6,7 +6,7 @@ def test_create(client, todos):
     headers = {
         "Content-Type": "application/json"
     }
-    response = client.post("/todos", headers=headers, json=todos)
+    response = client.post
     assert response.status_code == 200
     assert response.json['1'] == "text"
 
