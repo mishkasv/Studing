@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $.ajax({
+        method: "GET",
         url: "/menu-items",
         success: function (data) {
             if (data.success) {
@@ -8,7 +9,6 @@ $(document).ready(function () {
                         "                    <a class=\"nav-link active\" aria-current=\"page\" href=\""+ el.link +"\">" + el.name + "</a>\n" +
                         "                </li>"
                     $("#menuItemsList").append(menuItemHtml);
-                    $("#menuItemsListfooter").append(menuItemHtml);
                 }
             }
         }

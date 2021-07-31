@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $.ajax({
-        url: "/menu-items",
+        method: "GET",
+        url: "/api/menu-items",
         success: function (data) {
             if (data.success) {
                 for (let el of data.items) {
