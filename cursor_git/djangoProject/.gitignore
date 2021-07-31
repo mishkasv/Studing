@@ -2,3 +2,7 @@
 /venv
 db.sqlite3
 /.idea
+/food
+/.idea
+/dealer
+/__pycache__

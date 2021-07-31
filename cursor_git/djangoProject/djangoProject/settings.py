@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'testapp',
+    'dealer.car',
+    'dealer.dealers',
+    'dealer.order',
+    'dealer.newemail',
 ]
 
 MIDDLEWARE = [
