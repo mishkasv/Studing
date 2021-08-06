@@ -10,5 +10,4 @@ class StatusViewTests(TestCase):
 
     def test_status_view(self):
         response = self.client.get('/status/')
-        print(response)
         assert response.status_code == HTTPStatus.OK
