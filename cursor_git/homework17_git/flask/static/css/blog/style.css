@@ -18,6 +18,8 @@ body {
 
 .footer {
     background-color: hotpink;
+    margin-top: 40px;
+    width: 100%;
 }
 
 .footer a {
@@ -38,3 +40,12 @@ body {
     padding: 0;
     padding-left: 10px;
 }
+
+.img {
+    margin: auto;
+    max-height:60%;
+    max-width:60%;
+}
+.img img{
+    max-height:100%;
+    max-width:100%;
