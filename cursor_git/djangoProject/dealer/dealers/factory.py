@@ -1,40 +1,42 @@
 from . import models
-import factory, faker
-
-faker_data = faker.Faker()
+import factory
 
 
 class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = models.User
+        django_get_or_create = ('username',)
 
-    first_name = faker_data.first_name()
-    last_name = faker_data.last_name()
-    username = faker_data.user_name()
-    email = faker_data.email()
+    first_name = factory.Faker('first_name')
+    last_name = factory.Faker('last_name')
+    username = factory.Faker('username')
+    email = factory.Faker('email')
 
 
 class DealerFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = models.Dealer
+        django_get_or_create = ('user',)
 
     user = factory.SubFactory(UserFactory)
     title = factory.Sequence(lambda n: 'title %s' % n)
-    email = faker_data.email()
+    email = factory.Faker('email')
     city = factory.SubFactory('dealer.dealers.factory.CityFactory')
 
 
 class CityFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = models.City
+        django_get_or_create = ('name',)
 
-    name = faker_data.city()
+    name = factory.Faker('city')
     country = factory.SubFactory('dealer.dealers.factory.CountryFactory')
 
 
 class CountryFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = models.Country
+        django_get_or_create = ('name',)
 
-    name = faker_data.country()
-    code = faker_data.country_code()
+    name = factory.Faker('country')
+    code = factory.Faker('country_code')

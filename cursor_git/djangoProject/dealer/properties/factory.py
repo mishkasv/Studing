@@ -1,5 +1,9 @@
 from . import models
-import factory, faker, faker_vehicle
+import factory, faker
+import factory.fuzzy
+from faker_vehicle.vehicle_dict import vehicles
+
+vehicle_category = [v['Category'] for v in vehicles]
 
 
 class PropertyFacrory(factory.django.DjangoModelFactory):
@@ -7,7 +11,7 @@ class PropertyFacrory(factory.django.DjangoModelFactory):
         model = models.Property
 
     category = factory.Sequence(lambda n: "Category #%s" % n)
-    name = faker_vehicle.VehicleProvider.vehicle_object()['Category']
+    name = factory.fuzzy.FuzzyChoice(vehicle_category)
 
     @factory.post_generation
     def carproperty(self, create, extracted, **kwargs):

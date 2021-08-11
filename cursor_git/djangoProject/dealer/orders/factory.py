@@ -1,5 +1,5 @@
 from . import models
-from dealer.car.factory import CarFactory
+from dealer.cars.factory import CarFactory
 import factory, faker
 import factory.fuzzy
 
@@ -7,11 +7,12 @@ import factory.fuzzy
 class OrderFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = models.Order
+        django_get_or_create = ('firstname', 'lastname',)
 
     status = factory.fuzzy.FuzzyChoice(models.Order.STATUS_OF_ORDER)
-    firstname = faker.Faker().first_name()
-    lastname = faker.Faker().last_name()
+    firstname = factory.Faker('first_name')
+    lastname = factory.Faker('last_name')
     email = '{}.{}@exemple.com'.format(firstname, lastname)
-    phone = faker.Faker().phone_number()
+    phone = factory.Faker('phone_number')
     car = factory.SubFactory(CarFactory)
-    message = 'I wanna order a {}'.format(car)
+    message = 'I wanna orders a {}'.format(car)

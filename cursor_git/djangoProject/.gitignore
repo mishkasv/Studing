@@ -1,4 +1,10 @@
-/templates
-/venv
+venv
 db.sqlite3
-/.idea
+.idea
+.env
+*/__pycache__/
+__pycache__/
+*/*/__pycache__
+*/*/*/__pycache__
+.gitignore
+
