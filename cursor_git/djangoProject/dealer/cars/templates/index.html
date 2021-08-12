@@ -19,7 +19,7 @@
 
 {% if cars.has_other_pages %}
 
-    <ul style="display: inline-flex;  list-style: none; border: outset;padding-inline: 30px">
+    <ul style="display: inline-flex;  list-style: none; padding-inline: 30px">
 
         {% if cars.has_previous %}
 
@@ -39,7 +39,7 @@
 
             {% else %}
 
-                <li style="border: outset;width: 20px;text-align: center;"><a href="?page={{ i }}">{{ i }}</a></li>
+                <li style="border: outset;width: 20px;text-align: center;"><a href="?page={{ i }}" >{{ i }}</a></li>
 
             {% endif %}
         {% endfor %}

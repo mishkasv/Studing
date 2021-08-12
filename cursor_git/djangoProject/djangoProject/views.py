@@ -1,8 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-import os
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-
 from dealer.cars.models import Car, Picture
 
 
@@ -27,7 +25,7 @@ def index_view(request):
         cars = paginator.page(paginator.num_pages)
     return render(
         request,
-        os.path.join(r'C:\Users\Gazik\studing\cursor_git\djangoProject\templates\index.html'),
+        'index.html',
         {
             'cars': cars,
             'pictures': pictures,
