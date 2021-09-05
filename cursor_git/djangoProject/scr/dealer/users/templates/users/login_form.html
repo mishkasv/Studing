@@ -1,0 +1,27 @@
+<body>
+{% load static %}
+<main class="form-signin">
+    <form method="post" action="{% url 'users:login-page' %}">
+        {% csrf_token %}
+        {% for field in login_form %}
+            {{ field.label }}
+            {{ field }}
+        {% endfor %}
+
+        {% if errors %}
+            <div class="container">
+                {% for error in errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+            </div>
+        {% endif %}
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+    </form>
+</main>
+
+</body>

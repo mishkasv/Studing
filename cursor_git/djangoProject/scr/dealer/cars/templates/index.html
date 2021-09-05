@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/subscribe">Subscribe</a>
+{% if request.user.is_anonymous %}
+    <a href="/users/login/" style="float: right">log in</a>
+{% else %}
+    <p style="float: right;margin: 0">{{ request.user.username }}{{ request.auth }}
+        <a href="/users/logout" style="float: right;">log out</a></p>
+{% endif %}
+<h1>Offer cars</h1>
+<div>
+    {% for car in cars %}
+        <a href="/cars/{{ car.id }}">Go to car</a>
+        <p><img src="{{ car.picture.url }}"></p>
+        <p>{{ car.model }} - {{ car.price }} $</p>
+        <br>
+    {% endfor %}
+</div>
+
+{% if cars.has_other_pages %}
+
+    <ul style="display: inline-flex;  list-style: none; padding-inline: 30px">
+
+        {% if cars.has_previous %}
+
+            <li style="border: outset;width: 20px;text-align: center;"><a href="?page={{ cars.previous_page_number }}">&laquo;</a>
+            </li>
+
+        {% else %}
+
+            <li style="border: inset;width: 20px;text-align: center;"><span>&laquo;</span></li>
+
+        {% endif %}
+        {% load get_elided_page_range_by_number %}
+        {% for i in cars.paginator|elided_range:cars.number %}
+            {% if cars.number == i %}
+
+                <li style="border: inset;width: 20px;text-align: center;"><span>{{ i }}</span></li>
+
+            {% else %}
+
+                <li style="border: outset;width: 20px;text-align: center;"><a href="?page={{ i }}">{{ i }}</a></li>
+
+            {% endif %}
+        {% endfor %}
+        {% if cars.has_next %}
+
+            <li style="border: outset;width: 20px;text-align: center;"><a href="?page={{ cars.next_page_number }}">&raquo;</a>
+            </li>
+        {% else %}
+            <li style="border: inset;width: 20px;text-align: center;"><span>&raquo;</span></li>
+        {% endif %}
+    </ul>
+{% endif %}
+</body>
+</html>

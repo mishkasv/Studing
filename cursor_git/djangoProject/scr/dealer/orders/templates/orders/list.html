@@ -1,0 +1,14 @@
+<body>
+
+<a href="/">Main page</a>|
+<h1>Orders list</h1>
+<div>
+    {% for order in orders %}
+        <a href="/orders/{{ order.id }}">Go to order</a><br>
+        {{ order.status }}<br>
+        {{ order.firstname }}<br>
+        {{ order.car }}<br>
+        <br>
+    {% endfor %}
+</div>
+</body>

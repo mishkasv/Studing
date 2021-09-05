@@ -1,0 +1,19 @@
+<body>
+
+<a href="/dealers/">To dealers</a>|
+<a href="/orders/">To orders</a>
+<a href="/">Main page</a>
+<ul>
+    <li>{{ dealer.email }}</li>
+    <li>{{ dealer.title }}</li>
+    <li>{{ dealer.user }}</li>
+    <br>
+    <h2>Dealer's autos</h2>
+    {% for car in dealer.dealers_cars.all %}
+        <li><a href="/cars/{{ car.id }}">{{ car.model }}</a></li>
+        <li>{{ car.status }}</li>
+        <br>
+    {% endfor %}
+</ul>
+
+</body>

@@ -1,0 +1,17 @@
+<body>
+
+<a href="/">Main page</a>
+<h1 style="text-align: center">Subscribe</h1>
+
+<div style="text-align: center">
+    <p>Do you want get the newest news from our site,
+        please fill in your email in form below</p>
+    <form action="" method="POST" style="display: inline-grid">
+        {% csrf_token %}
+        {{ form.email.label }}<br>
+        {{ form.email }}<br>
+        <button type="submit" style="background-color: green">Subscribe</button>
+    </form>
+</div>
+
+</body>
