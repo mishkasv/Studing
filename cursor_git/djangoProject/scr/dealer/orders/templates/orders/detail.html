@@ -1,0 +1,17 @@
+<body>
+
+<a href="/orders/">To orders</a>
+<a href="/dealers/{{ order.car.dealer.id }}">To dealer</a>
+<a href="/">Main page</a>
+<ul>
+    <li>{{ order.firstname }}</li>
+    <li>{{ order.lastname }}</li>
+    <li>{{ order.status }}</li>
+    <li>{{ order.car.model }}</li>
+    <li>{{ order.message }}</li>
+    <li>{{ order.email }}</li>
+    <li>{{ order.phone }}</li>
+
+</ul>
+
+</body>

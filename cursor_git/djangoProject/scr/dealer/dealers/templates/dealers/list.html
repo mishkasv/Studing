@@ -1,0 +1,14 @@
+<body>
+
+<a href="/">Main page</a>
+<h1>Dealers list</h1>
+<div>
+    {% for dealer in dealers %}
+        <a href="/dealers/{{ dealer.id }}">Go to dealer</a><br>
+        {{ dealer.title }}<br>
+        {{ dealer.user.username }}<br>
+        <br>
+    {% endfor %}
+</div>
+
+</body>

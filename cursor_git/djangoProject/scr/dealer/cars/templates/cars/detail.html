@@ -1,0 +1,25 @@
+<body>
+<a href="/cars/">To cars</a>|
+<a href="/dealers/{{ car.dealer.id }}">To dealer</a>|
+<a href="/">Main page</a>
+<ul>
+    <img src="{{ car.picture.url }}">
+    <li>{{ car.model }} - Model</li>
+    <li>{{ car.model.brand }} - Brand</li>
+    <li>{{ car.price }} - Price</li>
+    <li><a href="/dealers/{{ car.dealer.id }}">{{ car.dealer.user.username }}</a> - Dealer</li>
+    <li>{{ car.capacity }} - Capacity</li>
+    <li>{{ car.enginepower }} - EnginePower</li>
+    <li>{{ car.enginetype }} - EngineType</li>
+    <li>{{ car.gearcase }} - GearCase</li>
+    <li>{{ car.sittingplace }} - SittingPlace</li>
+    <li>{{ car.doors }} - Doors</li>
+</ul>
+{% if car.dealer.user == request.user %}
+    <ul>
+        {% for order in car.order_car.all %}
+            <li><a href="/orders/{{ order.id }}">To order</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+</body>

@@ -1,0 +1,12 @@
+<body>
+<a href="/">Main page</a>
+<h1>Cars list</h1>
+<div>
+    {% for car in cars %}
+        <a href="/cars/{{ car.id }}">Go to dealer</a><br>
+        {{ car.model }}<br>
+        {{ car.price }}<br>
+        <br>
+    {% endfor %}
+</div>
+</body>
