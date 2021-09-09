@@ -12,7 +12,7 @@ class TestDealers(TestCase):
         self.assertEqual(country.name, 'Ukraine')
 
         with self.assertRaises(IntegrityError):
-            CountryFactory(name='Ukraine').objects.create()
+            CountryFactory(name='Ukraine')
 
 
     def test_City(self):
